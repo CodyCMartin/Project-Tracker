@@ -5,27 +5,27 @@ require_once 'inc/header.inc.php';
 require_once 'inc/functions.inc.php';
 
 
-// trying to move php to functions file
-
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     $errorString = "";
-//     $email = $db->real_escape_string($_POST['email']);
-//     $password = hash('sha512', $db->real_escape_string($_POST['password']));
-
-//     $sql = "SELECT * FROM user WHERE email='$email' AND password='$password'";
 
 
-//     $result = $db->query($sql);
-//     if ($result->num_rows == 1) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $errorString = "";
+    $email = $db->real_escape_string($_POST['email']);
+    $password = hash('sha512', $db->real_escape_string($_POST['password']));
 
-//         $_SESSION['email'] = $email;
-//         $row = $result->fetch_assoc();
-//         $_SESSION['first_name'] = $row['first_name'];
-//         header('location: gallery.php');
-//     } else {
-//         $errorString = 'Incorrect combination please try again';
-//     }
-// }
+    $sql = "SELECT * FROM user WHERE email='$email' AND password='$password'";
+
+
+    $result = $db->query($sql);
+    if ($result->num_rows == 1) {
+
+        $_SESSION['email'] = $email;
+        $row = $result->fetch_assoc();
+        $_SESSION['first_name'] = $row['first_name'];
+        header('location: projects.php');
+    } else {
+        $errorString = 'Incorrect combination please try again';
+    }
+}
 
 ?>
 
