@@ -9,13 +9,13 @@ This website was made for a final project. The main purpose of this site is for 
 
 # Future Features
 
-  - Users able to collaberate with one another and update their project from their home screen
+  - Users able to collaborate with one another and update their project from their home screen
   - Time tracking for better billing
   - Users ability to click and drag project cards to sort priority 
 
 ### Tech
 
-This site was built using the follwoing technologies:
+This site was built using the following technologies:
 
 * HTML
 * CSS
