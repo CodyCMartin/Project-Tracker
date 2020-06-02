@@ -2,7 +2,7 @@
 
 # Project Tracker by Cody Martin
 
-This website was made for a final project. The main purpose of this site is for freelancers or hobbiest to be able to keep track of their current projects in an organized manner. The functional goals are as follows:
+This website was made for a final project. The main purpose of this site is for freelancers or hobbyist to be able to keep track of their current projects in an organized manner. The functional goals are as follows:
 
   - Users can Register/Login
   - Users can Create, Read, Update and Delete projects
