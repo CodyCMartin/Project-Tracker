@@ -14,9 +14,9 @@ CREATE TABLE `tracking`.`user`
 
 CREATE TABLE `tracking`.`client`
 ( `client_id` INT
-(3) NOT NULL AUTO_INCREMENT , `first_name` VARCHAR
-(10) NOT NULL , `last_name` VARCHAR
-(15) NOT NULL , PRIMARY KEY
+(3) NOT NULL AUTO_INCREMENT ,`user_id` INT
+(3) NOT NULL, `first_name` VARCHAR
+(10) NOT NULL , PRIMARY KEY
 (`client_id`)) ENGINE = InnoDB;
 
 CREATE TABLE `tracking`.`project`

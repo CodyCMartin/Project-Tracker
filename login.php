@@ -21,6 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['email'] = $email;
         $row = $result->fetch_assoc();
         $_SESSION['first_name'] = $row['first_name'];
+        $_SESSION['user_id'] = $row['user_id'];
+
         header('location: projects.php');
     } else {
         $errorString = 'Incorrect combination please try again';

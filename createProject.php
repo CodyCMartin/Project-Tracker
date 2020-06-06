@@ -1,28 +1,74 @@
 <?php
 session_start();
 
-$pageTitle = "Registration";
+$pageTitle = "Create Project";
 require_once 'inc/header.inc.php';
 
-
+// dealing with client creation into the db
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $first_name = $db->real_escape_string($_POST['first_name']);
-    $last_name = $db->real_escape_string($_POST['last_name']);
-    $password = hash('sha512', $db->real_escape_string($_POST['password']));
-    $email = $db->real_escape_string($_POST['email']);
+    $client_name = $db->real_escape_string($_POST['client_name']); 
+    $user_id = $db->real_escape_string($_SESSION['user_id']);    
 
-    $sql = "INSERT INTO user (first_name,last_name,password,email) 
-                    VALUES('$first_name','$last_name','$password','$email')";
+    $sql = "INSERT INTO client (user_id,first_name) 
+                    VALUES('$user_id','$client_name')";
 
-    echo $sql;
+    //echo $sql;
     $result = $db->query($sql);
 
     if (!$result) {
         $errorString = 'Double check formatting';
     } else {
-        header('location: login.php');
+        // header('location: login.php');
     }
 }
+
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $project_name = $db->real_escape_string($_POST['project_name']);
+    $notes = $db->real_escape_string($_POST['notes']); 
+    $user_id = $db->real_escape_string($_SESSION['user_id']);
+
+    
+
+    $sql = "INSERT INTO project (user_id,project_name,notes) 
+                    VALUES('$user_id','$project_name','$notes')";
+
+    //echo $sql;
+    $result = $db->query($sql);
+
+    if (!$result) {
+        $errorString = 'Double check formatting';
+    } else {
+        // header('location: login.php');
+    }
+}  
+
+                                    // $sql = "SELECT * FROM client";  
+                                    //      echo $sql;                                  
+                                    //     $result = $db->query($sql);
+                                        
+                                    //     if ($result->num_rows == 1) { 
+                                    //         echo "yes theres rows";
+                                    //         $row = $result->fetch_assoc(); 
+                                    //         echo $row;
+                                    //         for ($i=0; $i < count($row) ; $i++) { 
+                                    //             echo $row['first_name'];   
+                                    //         }
+                                                                                         
+                                    //         // echo "<option value='" . $row['first_name'] . "'>
+                                    //         //   </option>";
+                                    //      } 
+                                
+//  $sql = "SELECT first_name FROM client";
+
+
+//     $result = $db->query($sql);
+//     if ($result->num_rows > 0) {        
+//         while($row = $result->fetch_assoc()) {
+//             echo "<option value='" . $row['first_name'] . "'>";            
+//         }
+//       } 
+      
 ?>
 
 <section id="cover" class="min-vh-100">
@@ -40,11 +86,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <div class="form-group">
                                 <label for="client_name" class="sr-only">Client Name</label>
-                                <input type="client_name" name="client_name" id="client_name" class="form-control" placeholder="Client Name (optional)">
+                                <input list="client_name" name="client_name" class="form-control" type="text" placeholder="Add or select client"> 
+                                    <datalist id="client_name">
+                                    <?php                                    
+                                         $sql = "SELECT * FROM client";
+
+
+                                         $result = $db->query($sql);
+                                         if ($result->num_rows > 0) {        
+                                             while($row = $result->fetch_assoc()) {
+                                                 echo "<option value= ". $row['client_id'] ."'" . $row['first_name'] . "'>";            
+                                             }
+                                           }                               
+                                                                            
+                                        ?>                                   
+                                    </datalist>                                                  
                             </div>
                             <div class="form-group">
                                 <label for="notes" class="sr-only">Project Notes</label>
-                                <textarea class="form-control" id="notes" rows="3" placeholder="Project Notes"></textarea>
+                                <textarea name="notes" class="form-control" id="notes" rows="3" placeholder="Project Notes"></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary btn-lg" value="Login">Save</button>
                             <br>
