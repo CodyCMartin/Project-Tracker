@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "INSERT INTO user (first_name,last_name,password,email) 
                     VALUES('$first_name','$last_name','$password','$email')";
 
-    echo $sql;
+    //echo $sql;
     $result = $db->query($sql);
 
     if (!$result) {

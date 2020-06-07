@@ -4,13 +4,50 @@ session_start();
 $pageTitle = "Create Project";
 require_once 'inc/header.inc.php';
 
-// dealing with client creation into the db
+//Client info db insert logic
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $client_name = $db->real_escape_string($_POST['client_name']); 
-    $user_id = $db->real_escape_string($_SESSION['user_id']);    
+    $first_name = $db->real_escape_string($_POST['client_name']);
+    $user_id = $_SESSION['user_id'];
+    $sql = "SELECT * FROM client WHERE user_id='$user_id' AND first_name='$first_name'";
+    $result = $db->query($sql);
+    $res_count = $result->num_rows;
 
-    $sql = "INSERT INTO client (user_id,first_name) 
-                    VALUES('$user_id','$client_name')";
+    // If results are not 0, then user already exists in db.
+    if ($res_count == 0) {
+        $first_name = $db->real_escape_string($_POST['client_name']);
+        // echo $user_id;
+        // echo $first_name;
+        $sql = "INSERT INTO client (user_id,first_name) 
+                    VALUES('$user_id','$first_name')";
+        //echo "inserted";
+        //echo $sql;
+        $result = $db->query($sql);
+        if (!$result) {
+            echo "error";
+            $errorString = 'Double check formatting';
+        } else {
+            //header('location: projects.php');
+        }
+        //end of insert
+    }
+    // pulling client id form db to set session variable for project table insert
+    $sql = "SELECT * FROM client WHERE first_name='$first_name'";
+    $result = $db->query($sql);
+    $row = $result->fetch_assoc();
+    $_SESSION['client_id'] = $row['client_id'];
+    // echo $_SESSION['client_id'];
+}
+
+
+// inserting project into database
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $project_name = $db->real_escape_string($_POST['project_name']);
+    $notes = $db->real_escape_string($_POST['notes']);
+    $user_id = $db->real_escape_string($_SESSION['user_id']);
+    $client_id = ($_SESSION['client_id']);
+
+    $sql = "INSERT INTO project (user_id,client_id,project_name,notes) 
+                    VALUES('$user_id','$client_id','$project_name','$notes')";
 
     //echo $sql;
     $result = $db->query($sql);
@@ -18,57 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$result) {
         $errorString = 'Double check formatting';
     } else {
-        // header('location: login.php');
+        //header('location: projects.php');
     }
 }
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $project_name = $db->real_escape_string($_POST['project_name']);
-    $notes = $db->real_escape_string($_POST['notes']); 
-    $user_id = $db->real_escape_string($_SESSION['user_id']);
-
-    
-
-    $sql = "INSERT INTO project (user_id,project_name,notes) 
-                    VALUES('$user_id','$project_name','$notes')";
-
-    //echo $sql;
-    $result = $db->query($sql);
-
-    if (!$result) {
-        $errorString = 'Double check formatting';
-    } else {
-        // header('location: login.php');
-    }
-}  
-
-                                    // $sql = "SELECT * FROM client";  
-                                    //      echo $sql;                                  
-                                    //     $result = $db->query($sql);
-                                        
-                                    //     if ($result->num_rows == 1) { 
-                                    //         echo "yes theres rows";
-                                    //         $row = $result->fetch_assoc(); 
-                                    //         echo $row;
-                                    //         for ($i=0; $i < count($row) ; $i++) { 
-                                    //             echo $row['first_name'];   
-                                    //         }
-                                                                                         
-                                    //         // echo "<option value='" . $row['first_name'] . "'>
-                                    //         //   </option>";
-                                    //      } 
-                                
-//  $sql = "SELECT first_name FROM client";
-
-
-//     $result = $db->query($sql);
-//     if ($result->num_rows > 0) {        
-//         while($row = $result->fetch_assoc()) {
-//             echo "<option value='" . $row['first_name'] . "'>";            
-//         }
-//       } 
-      
 ?>
 
 <section id="cover" class="min-vh-100">
@@ -86,21 +77,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <div class="form-group">
                                 <label for="client_name" class="sr-only">Client Name</label>
-                                <input list="client_name" name="client_name" class="form-control" type="text" placeholder="Add or select client"> 
-                                    <datalist id="client_name">
-                                    <?php                                    
-                                         $sql = "SELECT * FROM client";
-
-
-                                         $result = $db->query($sql);
-                                         if ($result->num_rows > 0) {        
-                                             while($row = $result->fetch_assoc()) {
-                                                 echo "<option value= ". $row['client_id'] ."'" . $row['first_name'] . "'>";            
-                                             }
-                                           }                               
-                                                                            
-                                        ?>                                   
-                                    </datalist>                                                  
+                                <input list="client_name" name="client_name" class="form-control" type="text" placeholder="Add or select client">
+                                <datalist id="client_name">
+                                    <!-- populates the previous clients drop down based on user id  -->
+                                    <?php
+                                    $user_id = $_SESSION['user_id'];
+                                    $sql = "SELECT * FROM client WHERE user_id='$user_id'";
+                                    $result = $db->query($sql);
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                            echo "<option value= '" . $row['first_name'] . "'>";
+                                        }
+                                    }
+                                    ?>
+                                </datalist>
                             </div>
                             <div class="form-group">
                                 <label for="notes" class="sr-only">Project Notes</label>
