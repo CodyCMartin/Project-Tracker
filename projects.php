@@ -12,25 +12,43 @@ if (empty($_SESSION['email'])) {
 
 ?>
 
-<!-- Sample card creation  -->
+<div class="container">
+    <div class="card-columns">
 
-<div class="card" style="width: 18rem;">
+<?php 	
 
-	<div class="card-body">
-		<h5 class="card-title">Project Title</h5>
-		<p class="card-text">Project Notes - Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis nam beatae numquam, praesentium consectetur non ex modi blanditiis laboriosam error, in asperiores magni? Iusto voluptas sequi labore aliquam nihil culpa!
+// look into join table to be able to query the below
 
-		</p>
-	</div>
-	<ul class="list-group list-group-flush">
+$user_id = $_SESSION['user_id'];
+$sql = "SELECT * FROM project WHERE user_id='$user_id'";
+$result = $db->query($sql);
+if ($result->num_rows > 0) {
+	while ($row = $result->fetch_assoc()) {
+		$_SESSION['client_id'] = $row['client_id'];
+		$client_id = $_SESSION['client_id'];		
+		echo '<div class="card">';
+		echo '<div class="card-body">';
+		echo '<h5 class="card-title">' . $row['project_name'] . '</h5>';
+		echo '<p class="card-text">'. $row['notes'] . '</p>';
+	}
+}
 
-		<li class="list-group-item">Clients Name</li>
-		<li class="list-group-item">Due Date</li>
-	</ul>
-	<div class="card-body">
-		<a href="#" class="card-link">Edit Project</a>
-		<a href="#" class="card-link">Delete Project</a>
-	</div>
+
+$sql = "SELECT first_name FROM client WHERE client_id='$client_id'";
+$result = $db->query($sql);
+if ($result->num_rows > 0) {
+	while ($row = $result->fetch_assoc()) {
+		echo '<p class="card-text"><small class="text-muted">' . $row['first_name'] . '</small></p>';
+		echo '</div>';
+		echo '</div>';
+	}
+}
+?>
+		
+	
+	
+
+</div>        
 </div>
 
 

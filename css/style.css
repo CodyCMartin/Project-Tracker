@@ -1,5 +1,9 @@
 /* style.css */
 
+body {
+    background: #232321;
+}
+
 #showPassword {
     text-decoration: underline;
 }
@@ -53,4 +57,14 @@ form:before {
 
 .btn {
     margin: 5px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border: none;
+}
+
+.text-muted i {
+    margin: 0 10px;
 }

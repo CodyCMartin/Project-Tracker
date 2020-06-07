@@ -25,9 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!$result) {
             echo "error";
             $errorString = 'Double check formatting';
-        } else {
-            //header('location: projects.php');
-        }
+        } 
         //end of insert
     }
     // pulling client id form db to set session variable for project table insert
@@ -55,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$result) {
         $errorString = 'Double check formatting';
     } else {
-        //header('location: projects.php');
+        header('location: projects.php');
     }
 }
 
