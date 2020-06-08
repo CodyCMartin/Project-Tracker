@@ -1,73 +1,70 @@
 /* style.css */
 
 body {
-    background: #232321;
+  background: #232321;
 }
 
 .mt {
-    margin-top: 5 !important;
+  margin-top: 5 !important;
 }
 
 #cover {
-    background: #222 url('https://unsplash.it/1920/1080/?nature') center center no-repeat;
-    background-size: cover;
-    height: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    position: relative;
+  background: #222 url("https://unsplash.it/1920/1080/?nature") center center
+    no-repeat;
+  background-size: cover;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 #cover-caption {
-    width: 100%;
-    position: relative;
-    z-index: 1;
-}
-
-form:before {
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: -1;
-    border-radius: 10px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 }
 
 .jumbotron {
-    margin-bottom: 0;
-    margin-bottom: 10px;
-}
-
-.pics {
-    border-radius: 10px;
-    background-color: cornsilk;
-    padding: 5px;
+  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .btn {
-    margin: 5px;
+  margin: 5px;
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    border: none;
-    margin-top: 10px;
-
-
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border: none;
+  margin-top: 10px;
 }
 
 .text-muted i {
-    margin: 0 5px;
+  margin: 0 5px;
 }
 
 .main {
-    padding: 0;
+  padding: 0;
 }
 
 .card-header {
-    padding-left: 0;
+  padding-left: 0;
+}
+
+.popUpForm {
+  color: white;
+  display: none;
+  align-items: center;
+  position: fixed;
+  bottom: 25%;
+  right: 25%;
+  border: 1px solid #000000;
+  z-index: 9;
+  width: 50%;
+  height: 50%;
+  padding: 20px;
+  background-color: #3b3b39;
+  border-radius: 5px;
 }
