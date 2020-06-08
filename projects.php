@@ -9,47 +9,45 @@ require_once 'inc/header.inc.php';
 if (empty($_SESSION['email'])) {
 	header('location: login.php');
 }
-
 ?>
-
-<div class="container">
-    <div class="card-columns">
-
-<?php 	
-
-// look into join table to be able to query the below
-
-$user_id = $_SESSION['user_id'];
-$sql = "SELECT * FROM project WHERE user_id='$user_id'";
-$result = $db->query($sql);
-if ($result->num_rows > 0) {
-	while ($row = $result->fetch_assoc()) {
-		$_SESSION['client_id'] = $row['client_id'];
-		$client_id = $_SESSION['client_id'];		
-		echo '<div class="card">';
-		echo '<div class="card-body">';
-		echo '<h5 class="card-title">' . $row['project_name'] . '</h5>';
-		echo '<p class="card-text">'. $row['notes'] . '</p>';
-	}
-}
-
-
-$sql = "SELECT first_name FROM client WHERE client_id='$client_id'";
-$result = $db->query($sql);
-if ($result->num_rows > 0) {
-	while ($row = $result->fetch_assoc()) {
-		echo '<p class="card-text"><small class="text-muted">' . $row['first_name'] . '</small></p>';
-		echo '</div>';
-		echo '</div>';
-	}
-}
-?>
-		
-	
-	
-
-</div>        
+<div class="container-fluid main">
+	<header class="jumbotron pb-5">
+		<h1 class="display-3">Project Tracking</h1>
+		<p class="lead">To add a project to track simply click "Add Project" and enter the required info.</p>
+		<a class="nav-link" href="createProject.php">Add Project</a>
+	</header>
 </div>
+
+
+
+<div class="container-fluid">
+	<div class="card-deck">
+
+
+		<?php
+		$user_id = $_SESSION['user_id'];
+		$sql = "SELECT project_name, notes, first_name FROM project AS pr INNER JOIN client cl ON pr.client_id = cl.client_id WHERE pr.user_id = '$user_id'";
+		$result = $db->query($sql);
+
+		if ($result->num_rows > 0) {
+			while ($row = $result->fetch_assoc()) {
+				echo '<div class="card">
+				<div class="card-body">
+				<h5 class="card-header">' . $row['project_name'] . '</h5><br>			
+				<div class="checkbox"></div>
+				<h6 class="card-subtitle mb-2 text-muted">Details</h6>
+				<p class="card-text">' . $row['notes'] . '</p>
+				<p class="card-text"><small class="text-muted">Client: ' . $row['first_name'] . '</small></p>
+				<a href="#" class="card-link">Edit</a>			
+				</div>
+				</div>';
+			}
+		}
+
+		?>
+	</div>
+</div>
+
 
 
 

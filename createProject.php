@@ -25,10 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!$result) {
             echo "error";
             $errorString = 'Double check formatting';
-        } 
+        }
         //end of insert
     }
-    // pulling client id form db to set session variable for project table insert
+    // pulling client id from db to set session variable for project table insert
     $sql = "SELECT * FROM client WHERE first_name='$first_name'";
     $result = $db->query($sql);
     $row = $result->fetch_assoc();

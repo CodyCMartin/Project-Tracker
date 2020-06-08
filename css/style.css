@@ -4,14 +4,6 @@ body {
     background: #232321;
 }
 
-#showPassword {
-    text-decoration: underline;
-}
-
-#showPassword:hover {
-    cursor: pointer;
-}
-
 .mt {
     margin-top: 5 !important;
 }
@@ -63,8 +55,19 @@ form:before {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     border: none;
+    margin-top: 10px;
+
+
 }
 
 .text-muted i {
-    margin: 0 10px;
+    margin: 0 5px;
+}
+
+.main {
+    padding: 0;
+}
+
+.card-header {
+    padding-left: 0;
 }
