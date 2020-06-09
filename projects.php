@@ -6,7 +6,7 @@ require_once 'inc/header.inc.php';
 
 // checking is email session variable. If not, redirect to login page.
 if (empty($_SESSION['email'])) {
-	header('location: login.php');
+	header('location: index1.php');
 }
 
 ?>

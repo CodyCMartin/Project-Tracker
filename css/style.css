@@ -8,15 +8,7 @@ body {
     margin-top: 5 !important;
 }
 
-#cover {
-    background: #222 url("https://unsplash.it/1920/1080/?nature") center center no-repeat;
-    background-size: cover;
-    height: 100%;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
+
 
 #cover-caption {
     width: 100%;
@@ -27,7 +19,10 @@ body {
 .jumbotron {
     margin-bottom: 0;
     margin-bottom: 10px;
+
 }
+
+
 
 .main-content {
     background-color: white;
@@ -76,6 +71,7 @@ body {
 
 .main {
     padding: 0;
+    background-color: white !important;
 }
 
 .card-header {

@@ -20,7 +20,7 @@ require_once 'inc/functions.inc.php';
 <?php if ($pageTitle == "Home") {
     require_once 'inc/nav.inc.php';
 } else {
-    require_once 'inc/galleryNav.inc.php';
+    require_once 'inc/projectNav.inc.php';
 } ?>
 
 <body>

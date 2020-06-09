@@ -1,4 +1,4 @@
 <?php
 session_start();
-require 'inc/header.inc.php';
+require 'functions.inc.php';
 logout();

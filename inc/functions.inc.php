@@ -1,5 +1,5 @@
 <?php
-require_once 'inc/db_connect.inc.php';
+require_once 'db_connect.inc.php';
 
 // error bucket to display any errors
 function display_errors($errors = array())
@@ -23,6 +23,6 @@ function logout()
 {
 	if (isset($_SESSION['email'])) {
 		session_destroy();
-		header('location: login.php');
+		header('location: ../index1.php');
 	} else echo "not destroyed";
 }
