@@ -1,7 +1,7 @@
 <?php
 require_once 'inc/db_connect.inc.php';
 
-
+// error bucket to display any errors
 function display_errors($errors = array())
 {
 	$output = '';
@@ -18,6 +18,7 @@ function display_errors($errors = array())
 	return $output;
 }
 
+// Destroys session variables and kicks user to login page
 function logout()
 {
 	if (isset($_SESSION['email'])) {

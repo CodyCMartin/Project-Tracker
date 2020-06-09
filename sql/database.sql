@@ -1,7 +1,7 @@
 -- SQL script to create db and all needed tables
 CREATE DATABASE tracking;
 
-
+-- User table 
 CREATE TABLE `tracking`.`user`
 ( `user_id` INT
 (3) NOT NULL AUTO_INCREMENT , `first_name` VARCHAR
@@ -12,6 +12,7 @@ CREATE TABLE `tracking`.`user`
 (`user_id`), UNIQUE
 (`email`)) ENGINE = InnoDB;
 
+-- Client table 
 CREATE TABLE `tracking`.`client`
 ( `client_id` INT
 (3) NOT NULL AUTO_INCREMENT ,`user_id` INT
@@ -19,6 +20,7 @@ CREATE TABLE `tracking`.`client`
 (10) NOT NULL , PRIMARY KEY
 (`client_id`)) ENGINE = InnoDB;
 
+-- project table 
 CREATE TABLE `tracking`.`project`
 ( `project_id` INT
 (3) NOT NULL AUTO_INCREMENT , `user_id` INT
