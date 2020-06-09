@@ -18,6 +18,14 @@
      .querySelector(".regBtn")
      .addEventListener("click", openFormReg);
 
+ // Handle for Reg button2
+ const regButton2 = document
+     .querySelector(".regBtn2")
+     .addEventListener("click", openFormReg);
+
+ // Handle for the span that will cycle through words
+ const timedWord = document.querySelector(".timedWord")
+
 
  // Open Reg form function    
  function openFormReg(e) {
@@ -42,3 +50,34 @@
      e.preventDefault();
      document.querySelector(".popUpFormReg").style.display = "none";
  }
+
+
+
+
+
+
+
+ //  words = ["from Anywhere", "as Planned", "at Anytime"]
+ //  for (let i = 0; i < words.length; i++) {
+ //      task(i);
+ //  }
+
+ //  function task(i) {
+ //      setTimeout(function () {
+ //          timedWord.innerText = words[i]
+ //      }, 5000 * i);
+
+ //  }
+
+
+ function wordCycle() {
+     timedWord.classList.toggle(".fade-in")
+     timedWord.innerText = "Hi"
+     setTimeout(() => {
+         timedWord.innerText = "Yes"
+         setTimeout(() => {}, 5000)
+     }, 5000)
+ }
+
+ wordCycle()
+ setInterval(wordCycle, 10000)

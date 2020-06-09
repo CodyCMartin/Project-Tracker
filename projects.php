@@ -21,7 +21,7 @@ if (empty($_SESSION['email'])) {
 
 
 
-<div class="container-fluid">	
+<div class="container-fluid">
 	<div class="card-columns">
 
 		<!-- Using a query to join table to build the output for project display  -->
@@ -50,36 +50,38 @@ if (empty($_SESSION['email'])) {
 </div>
 
 
+<!-- add new project popup form  -->
 
 <form action="inc/createProject.inc.php" method="POST" class="justify-content-center popUpForm">
-							<h5>Project Information</h5>
-                            <div class="form-group">
-                                <label for="project_name" class="sr-only">First Name</label>
-                                <input type="text" name="project_name" id="project_name" class="form-control" placeholder="Project Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="client_name" class="sr-only">Client Name</label>
-                                <input list="client_name" name="client_name" class="form-control" type="text" placeholder="Add or select client">
-                                <datalist id="client_name">
-                                    <!-- populates the previous clients drop down based on user id  -->
-                                    <?php
-                                    $user_id = $_SESSION['user_id'];
-                                    $sql = "SELECT * FROM client WHERE user_id='$user_id'";
-                                    $result = $db->query($sql);
-                                    if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_assoc()) {
-                                            echo "<option value= '" . $row['first_name'] . "'>";
-                                        }
-                                    }
-                                    ?>
-                                </datalist>
-                            </div>
-                            <div class="form-group">
-                                <label for="notes" class="sr-only">Project Notes</label>
-                                <textarea name="notes" class="form-control" id="notes" rows="3" placeholder="Project Notes"></textarea>
-                            </div>
-							<button type="submit" class="btn btn-primary btn-lg" value="Login">Save</button>
-							<input type="button" class="closeButton btn btn-primary btn-lg" value="Cancel"></button>  </form>
+	<h5>Project Information</h5>
+	<div class="form-group">
+		<label for="project_name" class="sr-only">First Name</label>
+		<input type="text" name="project_name" id="project_name" class="form-control" placeholder="Project Name">
+	</div>
+	<div class="form-group">
+		<label for="client_name" class="sr-only">Client Name</label>
+		<input list="client_name" name="client_name" class="form-control" type="text" placeholder="Add New or Select Previous Client">
+		<datalist id="client_name">
+			<!-- populates the previous clients drop down based on user id  -->
+			<?php
+			$user_id = $_SESSION['user_id'];
+			$sql = "SELECT * FROM client WHERE user_id='$user_id'";
+			$result = $db->query($sql);
+			if ($result->num_rows > 0) {
+				while ($row = $result->fetch_assoc()) {
+					echo "<option value= '" . $row['first_name'] . "'>";
+				}
+			}
+			?>
+		</datalist>
+	</div>
+	<div class="form-group">
+		<label for="notes" class="sr-only">Project Notes</label>
+		<textarea name="notes" class="form-control" id="notes" rows="3" placeholder="Project Notes"></textarea>
+	</div>
+	<button type="submit" class="btn btn-primary btn-lg" value="Login">Save</button>
+	<input type="button" class="closeButton btn btn-primary btn-lg" value="Cancel"></button>
+</form>
 </body>
 
 

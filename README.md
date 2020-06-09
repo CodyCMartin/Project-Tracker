@@ -12,7 +12,7 @@ This website was made for a final project. The main purpose of this site is for 
 - Users able to collaborate with one another and update their project from their home project screen
 - Time tracking for better billing
 - Users ability to click and drag project cards to sort priority
-- Form pops up to add new project instead of loading a new form page
+- ✔️ Form pops up to add new project instead of loading a new form page
 
 ### Tech
 

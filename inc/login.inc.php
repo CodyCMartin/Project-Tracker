@@ -24,10 +24,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $errorString = 'Incorrect combination please try again';
     }
 }
-
-?>             
-
-
-
-
-
