@@ -51,33 +51,21 @@
      document.querySelector(".popUpFormReg").style.display = "none";
  }
 
-
-
-
-
-
-
- //  words = ["from Anywhere", "as Planned", "at Anytime"]
- //  for (let i = 0; i < words.length; i++) {
- //      task(i);
- //  }
-
- //  function task(i) {
- //      setTimeout(function () {
- //          timedWord.innerText = words[i]
- //      }, 5000 * i);
-
- //  }
-
-
+ //  Function to display words on a rotation 
  function wordCycle() {
-     timedWord.classList.toggle(".fade-in")
-     timedWord.innerText = "Hi"
+     timedWord.innerHTML = "from <strong>Anywhere</strong>"
+
+
      setTimeout(() => {
-         timedWord.innerText = "Yes"
-         setTimeout(() => {}, 5000)
+
+         timedWord.innerHTML = "as <strong>Planned</strong>"
+         setTimeout(() => {
+
+             timedWord.innerHTML = "at <strong>Anytime</strong>"
+
+         }, 5000)
      }, 5000)
  }
-
+ //  Call to rotate words then interval to keep them rotating 
  wordCycle()
- setInterval(wordCycle, 10000)
+ setInterval(wordCycle, 15000)

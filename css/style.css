@@ -1,7 +1,11 @@
 /* style.css */
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    background: #232321;
+    background: white;
+
 }
 
 .mt {
@@ -21,19 +25,46 @@ body {
 }
 
 
-
+/* This is for the landing page container  */
 .main-content {
     background-color: white;
     height: 100vh;
     display: grid;
     grid-template-columns: 50vw 50vw;
-    grid-template-columns: 100vh;
+    grid-template-rows: 100vh 100vh;
+
 }
 
-.text1 {
+.arrow {
+    clip-path: polygon(14% 63%, 41% 63%, 42% 18%, 64% 19%, 64% 63%, 90% 64%, 52% 98%);
+    height: 50px;
+    width: 50px;
+
+    position: absolute;
+    margin-left: 50px;
+}
+
+.arrow:hover {
+    background-color: #232321;
+}
+
+
+/* first view on load  */
+#section1 {
     align-self: center;
     margin: 25px;
     margin-bottom: 100px;
+    grid-row: 1/2;
+}
+
+/* lower portion of the landing page  */
+#section2 {
+    align-self: center;
+
+    margin: 25px;
+    margin-bottom: 100px;
+    grid-row: 3/4;
+
 }
 
 .nav-link,
@@ -91,15 +122,30 @@ body {
     padding: 20px;
     background-color: #3b3b39;
     border-radius: 5px;
+
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .fade-in {
-    animation: fadeIn ease 2s;
-    -webkit-animation: fadeIn ease 2s;
-    -moz-animation: fadeIn ease 2s;
-    -o-animation: fadeIn ease 2s;
-    -ms-animation: fadeIn ease 2s;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
+    -moz-animation: fadeIn ease 1s;
+    -o-animation: fadeIn ease 1s;
+    -ms-animation: fadeIn ease 1s;
 }
 
 @keyframes fadeIn {
