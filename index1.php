@@ -33,7 +33,7 @@ require_once 'inc/header.inc.php';
         <input type="password" name="password" id="password" class="form-control" placeholder="Password">
     </div>
     <button type="submit" class="btn btn-primary btn-lg" value="Login">Login</button>
-    <input type="button" class="closeButton btn btn-primary btn-lg" value="Cancel"></button>
+    <input type="button" class="closeButton btn btn-secondary btn-lg" value="Cancel"></button>
 </form>
 
 <!-- Hidden Register form  -->
@@ -56,6 +56,6 @@ require_once 'inc/header.inc.php';
         <input type="password" name="password" id="password" class="form-control" placeholder="Password">
     </div>
     <button type="submit" class="btn btn-primary btn-lg" value="Login">Submit</button>
-    <input type="button" class="closeButtonReg btn btn-primary btn-lg" value="Cancel"></button>
+    <input type="button" class="closeButtonReg btn btn-secondary btn-lg" value="Cancel"></button>
 
 </form>

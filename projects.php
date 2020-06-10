@@ -22,8 +22,7 @@ if (empty($_SESSION['email'])) {
 
 
 <div class="container-fluid">
-	<div class="card-columns">
-
+	<div class="row">
 		<!-- Using a query to join table to build the output for project display  -->
 		<?php
 		$user_id = $_SESSION['user_id'];
@@ -32,7 +31,7 @@ if (empty($_SESSION['email'])) {
 		// If any project exist in db, output them into HTML 
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {
-				echo '<div class="card">
+				echo '<div class="card col-sm-2">
 				<div class="card-body">
 				<h5 class="card-header">' . $row['project_name'] . '</h5><br>			
 				<div class="checkbox"></div>
