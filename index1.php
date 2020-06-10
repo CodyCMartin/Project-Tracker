@@ -6,7 +6,6 @@ require_once 'inc/header.inc.php';
 <script defer src="js/landingScript.js"></script>
 
 
-
 <!-- make part of the sentence show on a variable  -->
 <div class="main-content">
     <div id="section1" class="text1">
@@ -15,10 +14,8 @@ require_once 'inc/header.inc.php';
         <button type="button" class="ml-0 btn btn-secondary btn-lg regBtn2">Get Started Free</button>
         <a href="#section2" type="button" class="bg-secondary arrow"></a>
     </div>
-    <div id="section2" class="text2">
-        <p class="headerText">Simple Effective<br> Tracking.</p>
-        <p class="subheader">Deliver on time <span class="timedWord"></span></p>
-    </div>
+    <div class="showCase"><img src="./imgs/showcase.png" alt="website sample img" >
+    </div>    
 </div>
 
 <!-- Hidden login form  -->

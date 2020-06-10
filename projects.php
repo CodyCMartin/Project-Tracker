@@ -15,7 +15,8 @@ if (empty($_SESSION['email'])) {
 	<header class="jumbotron pb-5">
 		<h1 class="display-3">Project Tracking</h1>
 		<p class="lead">To add a project to track simply click "Add Project" and enter the required info.</p>
-		<a class="popUp" href="createProject.inc.php">Add Project</a>
+		<a class="popUp" href="">Add Project</a>
+		
 	</header>
 </div>
 
@@ -31,14 +32,14 @@ if (empty($_SESSION['email'])) {
 		// If any project exist in db, output them into HTML 
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {
-				echo '<div class="card col-sm-2">
+				echo '<div class="card col-sm-2 col-md">
 				<div class="card-body">
 				<h5 class="card-header">' . $row['project_name'] . '</h5><br>			
 				<div class="checkbox"></div>
 				<h6 class="card-subtitle mb-2 text-muted">Details</h6>
 				<p class="card-text">' . $row['notes'] . '</p>
 				<p class="card-text"><small class="text-muted">Client: ' . $row['first_name'] . '</small></p>
-				<a href="#" class="card-link">Edit</a>			
+				<a href="" class="card-link">Edit</a>			
 				</div>
 				</div>';
 			}

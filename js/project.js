@@ -1,5 +1,6 @@
 // Function to open popup project form
 function openForm(e) {
+  alert()
   e.preventDefault();
   document.querySelector(".popUpForm").style.display = "block";
 }
