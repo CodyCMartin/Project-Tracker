@@ -1,11 +1,11 @@
 /* style.css */
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
     background: white;
-
 }
 
 .mt {
@@ -21,18 +21,15 @@ body {
 .jumbotron {
     margin-bottom: 0;
     margin-bottom: 10px;
-
 }
 
-
 /* This is for the landing page container  */
+
 .main-content {
     background-color: white;
-    height: 100vh;
     display: grid;
-    grid-template-columns: 30vw 70vw;
+    grid-template-columns: 50vw 50vw;
     grid-template-rows: 100vh 50vh 50vh;
-
 }
 
 .arrow {
@@ -47,8 +44,8 @@ body {
     background-color: #232321;
 }
 
-
 /* first view on load  */
+
 #section1 {
     align-self: center;
     margin-left: 15px;
@@ -59,31 +56,25 @@ body {
 
 /* lower portion of the landing page  */
 
-
 .showCase img {
     grid-column: 2/4;
-    align-self: center;
+    align-self: left;
     height: 850px;
     width: 950px;
     margin-left: 10px;
     margin-right: 0;
-
 }
 
-
-.nav-link,
-.navbar-brand {
+.nav-link, .navbar-brand {
     color: black;
     font-weight: bolder;
     font-size: x-large;
 }
 
-.nav-link:hover,
-.navbar-brand:hover {
+.nav-link:hover, .navbar-brand:hover {
     color: rgb(112, 112, 112);
     text-decoration: underline;
 }
-
 
 .headerText {
     font-size: 3rem;
@@ -106,7 +97,6 @@ body {
 }
 
 .card:hover {
-
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7);
     padding-left: 15px;
     padding-right: 15px;
@@ -120,29 +110,22 @@ body {
     background-color: white;
 }
 
-
-
 .card-header {
     padding-left: 5px;
     width: auto;
     text-align: center;
 }
 
-.popUpForm,
-.popUpFormLogin,
-.popUpFormReg {
+.popUpForm, .popUpFormLogin, .popUpFormReg {
     color: white;
     display: none;
     align-items: center;
     position: fixed;
     top: 20%;
     left: 40%;
-
     width: 400px;
     height: auto;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.85);
     border-radius: 5px;
-
-
 }
