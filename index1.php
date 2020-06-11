@@ -14,9 +14,24 @@ require_once 'inc/header.inc.php';
         <button type="button" class="ml-0 btn btn-secondary btn-lg regBtn2">Get Started Free</button>
         <a href="#section2" type="button" class="bg-secondary arrow"></a>
     </div>
-    <div class="showCase"><img src="./imgs/showcase.png" alt="website sample img" >
-    </div>    
+    <div class="showCase">
+        <img class="imgs" src="./imgs/showcase.png" alt="website sample img">
+    </div>
+    <div class="section2" id="section2">
+        <p class="boxText">Time Management On Your side.</p>
+    </div>
+    <div class="section3" id="section3">
+        <p class="boxText">Anytime, Anywhere.</p>
+    </div>
+    <div class="section4" id="section4">
+        <img class="section2Imgs" src="./imgs/time.jpg" alt="website sample img">
+    </div>
+    <div class="section5" id="section5">
+        <img class="section2Imgs" src="./imgs/deadline.jpg" alt="website sample img">
+    </div>
 </div>
+
+
 
 <!-- Hidden login form  -->
 <form action="inc/login.inc.php" method="POST" class="justify-content-center popUpFormLogin">

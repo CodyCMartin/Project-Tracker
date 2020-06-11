@@ -54,18 +54,13 @@
  //  Function to display words on a rotation 
  function wordCycle() {
      timedWord.innerHTML = "from <strong>Anywhere</strong>"
-
-
      setTimeout(() => {
-
          timedWord.innerHTML = "as <strong>Planned</strong>"
          setTimeout(() => {
-
              timedWord.innerHTML = "at <strong>Anytime</strong>"
-
-         }, 5000)
-     }, 5000)
+         }, 3000)
+     }, 3000)
  }
  //  Call to rotate words then interval to keep them rotating 
  wordCycle()
- setInterval(wordCycle, 15000)
+ setInterval(wordCycle, 6000)
