@@ -1,6 +1,5 @@
 // Function to open popup project form
 function openForm(e) {
-  alert()
   e.preventDefault();
   document.querySelector(".popUpForm").style.display = "block";
 }
@@ -20,3 +19,15 @@ const popUp = document
 const closeButton = document
   .querySelector(".closeButton")
   .addEventListener("click", closeForm);
+
+
+
+
+const editBtn = document
+  .querySelector(".editBtn")
+  .addEventListener("click", openForm);
+
+
+
+// alert('doh')
+// console.log(`STUFF ${editBtn}`)

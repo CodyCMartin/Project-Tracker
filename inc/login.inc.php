@@ -22,5 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header('location: ../projects.php');
     } else {
         $errorString = 'Incorrect combination please try again';
+        header('location: ../index1.php');
     }
 }

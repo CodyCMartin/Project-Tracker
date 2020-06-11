@@ -1,6 +1,7 @@
 <!-- This is the logic to input a new project into the database -->
 <?php
 session_start();
+require_once 'inc/header.inc.php';
 require_once 'db_connect.inc.php';
 
 
@@ -58,4 +59,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
-?>
+$project_name = "";
+$notes = "";
+
+// edit project info
+if (isset($_GET["edit"])) {
+    $project_id = $_GET["edit"];
+    // $project_name = $db->real_escape_string($_POST['project_name']);
+    // $notes = $db->real_escape_string($_POST['notes']);
+    $result = $db->query("SELECT * FROM project WHERE project_id=$project_id");
+    if (count($result) == 1) {
+        $row = $result->fetch_array();
+        $project_name = $row["project_name"];
+        $notes = $row["notes"];
+    }
+
+    // $sql = "UPDATE `project` SET `project_name` = '$project_name', `notes` = '$notes' WHERE `project`.`project_id` = $project_name";
+
+}
