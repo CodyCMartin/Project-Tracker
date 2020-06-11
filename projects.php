@@ -32,7 +32,7 @@ if (empty($_SESSION['email'])) {
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {
 				echo '<div class="card col-lg-auto">
-				<div class="card-body">
+				<div class="card-body">P
 				<h5 class="card-header">' . $row['project_name'] . '</h5><br>			
 				<div class="checkbox"></div>
 				<h6 class="card-subtitle mb-2 text-muted">Details</h6>
