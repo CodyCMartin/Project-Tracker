@@ -32,7 +32,7 @@ if (empty($_SESSION['email'])) {
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {
 				echo '<div class="card col-lg-auto">
-				<div class="card-body">P
+				<div class="card-body">
 				<h5 class="card-header">' . $row['project_name'] . '</h5><br>			
 				<div class="checkbox"></div>
 				<h6 class="card-subtitle mb-2 text-muted">Details</h6>
@@ -48,15 +48,6 @@ if (empty($_SESSION['email'])) {
 	</div>
 </div>
 
-<!-- for edit button to work you need to use ajax to fetch info from db and have it sent as json object  -->
-<!-- 
-fetch('')
-.then(res => res.text())
-.then(data => {
-	display_files.innerhtml()
-}) -->
-
-
 
 <!-- add new project popup form  -->
 
@@ -71,7 +62,7 @@ fetch('')
 	</div>
 	<div class="form-group">
 		<label for="client_name" class="sr-only">Client Name</label>
-		<input list="client_name" name="client_name" class="form-control" type="text" placeholder="Add New or Select Previous Client">
+		<input list="client_name" id="clent_name" name="client_name" class="client form-control" type="text" placeholder="Add New or Select Previous Client">
 		<datalist id="client_name">
 			<!-- populates the previous clients drop down based on user id  -->
 			<?php
@@ -88,7 +79,8 @@ fetch('')
 	</div>
 	<div class="form-group">
 		<label for="notes" class="sr-only">Project Notes</label>
-		<textarea name="notes" class="form-control" id="notes" value="<?php echo $notes; ?>" rows="3" placeholder="Project Notes"></textarea>
+		<textarea name="notes" class="form-control" id="notes" rows="3" placeholder="Project Notes"></textarea>
+		<input type="hidden" name="project_id" id="project_id"></input>
 	</div>
 	<button type="submit" class="btn btn-primary btn-lg" value="Login">Save</button>
 	<input type="button" class="closeButton btn btn-primary btn-lg" value="Cancel"></button>

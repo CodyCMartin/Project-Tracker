@@ -4,6 +4,8 @@ function openForm(e) {
   document.querySelector(".popUpForm").style.display = "block";
 }
 
+
+
 //Function to close popup project form if cancel button is pressed
 function closeForm(e) {
   e.preventDefault();
@@ -20,14 +22,54 @@ const closeButton = document
   .querySelector(".closeButton")
   .addEventListener("click", closeForm);
 
-
-
-
+// Get ahandle on all edit buttons
 const editBtn = document
-  .querySelector(".editBtn")
-  .addEventListener("click", openForm);
+  .querySelectorAll(".editBtn")
+
+// Add event listeners to all edit buttons
+editBtn.forEach(function (element) {
+  element.addEventListener("click", function (e) {
+    e.preventDefault()
+    fetcher(element.href)
+
+
+  })
+})
+
+// fetch project info to create sticky fields for update form 
+function fetcher(url) {
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        console.log("data:", data)
+        openEditForm(data)
+      }
+
+    )
+}
+
+function openEditForm(data) {
+  console.log(data)
+  // handles for various fields for the upate form
+  const nameField = document.querySelector("#project_name")
+  const notesField = document.querySelector("#notes")
+  const form = document.querySelector(".popUpForm")
+  const hiddenId = document.querySelector("#project_id")
+  const client = document.querySelector(".client")
+  // Show the form popup
+  document.querySelector(".popUpForm").style.display = "block"
+  // Add current project values so user doesnt forget wha project they are editing
+  client.setAttribute("type", "hidden")
+  hiddenId.value = data[0].project_id
+  nameField.value = data[0].project_name
+  notesField.innerText = data[0].notes
+  // change the action and submit for sql update
+  form.action = "inc/update.inc.php"
 
 
 
-// alert('doh')
-// console.log(`STUFF ${editBtn}`)
+
+
+
+}

@@ -1,5 +1,3 @@
-<!-- Database connection  -->
-
 <?php
 // db_connect.inc.php
 
