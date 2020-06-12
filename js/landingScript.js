@@ -63,4 +63,4 @@
  }
  //  Call to rotate words then interval to keep them rotating 
  wordCycle()
- setInterval(wordCycle, 6000)
+ setInterval(wordCycle, 9000)
