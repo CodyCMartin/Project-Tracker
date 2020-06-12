@@ -31,7 +31,7 @@ if (empty($_SESSION['email'])) {
 		// If any project exist in db, output them into HTML 
 		if ($result->num_rows > 0) {
 			while ($row = $result->fetch_assoc()) {
-				echo '<div class="card col-lg-auto">
+				echo '<div class="card col-lg align-items">
 				<div class="card-body">
 				<h5 class="card-header">' . $row['project_name'] . '</h5><br>			
 				<div class="checkbox"></div>
@@ -87,18 +87,7 @@ if (empty($_SESSION['email'])) {
 </form>
 </body>
 
+<?php require_once 'inc/footer.inc.php'; ?>
 
-<!-- radio button for existing client or new  -->
-<!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary active">
-    <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option2" autocomplete="off"> Radio
-  </label>
-  <label class="btn btn-secondary">
-    <input type="radio" name="options" id="option3" autocomplete="off"> Radio
-  </label>
-</div> -->
 
 </html>
