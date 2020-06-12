@@ -1,7 +1,7 @@
 <!-- This is the logic to input a new project into the database -->
 <?php
 session_start();
-require_once 'inc/header.inc.php';
+
 require_once 'db_connect.inc.php';
 
 
