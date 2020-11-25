@@ -29,7 +29,7 @@ require_once 'inc/header.inc.php';
     <div class="section5" id="section5">
         <img class="section2Imgs" src="./imgs/deadline.jpg" alt="website sample img">
     </div>
-    
+
 </div>
 
 
@@ -72,4 +72,3 @@ require_once 'inc/header.inc.php';
     <input type="button" class="closeButtonReg btn btn-secondary btn-lg" value="Cancel"></button>
 
 </form>
-

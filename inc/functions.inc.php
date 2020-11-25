@@ -23,6 +23,6 @@ function logout()
 {
 	if (isset($_SESSION['email'])) {
 		session_destroy();
-		header('location: ../index1.php');
+		header('location: ../index.php');
 	} else echo "not destroyed";
 }

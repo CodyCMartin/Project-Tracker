@@ -17,6 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!$result) {
         $errorString = 'Double check formatting';
     } else {
-        header('location: ../index1.php');
+        header('location: ../index.php');
     }
 }
